@@ -1,0 +1,91 @@
+{% extends "dataProjectLayout.html" %}
+
+{% set active_page = "page2" %}
+
+{% block title %}Page 2{% endblock %}
+
+{% block content %}
+<br>
+<h1>Times of the Earthquakes</h1>
+<br>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+window.onload = function() {
+
+var chart1 = new CanvasJS.Chart("chartContainer1", {
+	animationEnabled: true,
+    theme: "dark1",
+	title: {
+		text: "Earthquake Days"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 270,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{{chart}}
+		]
+	}]
+});
+chart1.render();
+
+/*var chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Days (August on left, July on right)"
+	},
+  	axisY: {
+      includeZero: true
+    },
+	data: [{
+		type: "column", //change type to bar, line, area, pie, etc
+		indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "#5A5757",
+      	indexLabelFontSize: 16,
+		indexLabelPlacement: "outside",
+		dataPoints: [
+            {{chart2}}
+		]
+	}]
+});*/
+var chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	theme: "dark1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Days"
+	},
+	axisY: {
+      includeZero: true
+    },
+	data: [{        
+		type: "column",  
+		//showInLegend: true, 
+		//legendMarkerColor: "grey",
+		//legendText: "MMbbl = one million barrels",
+        indexLabel: "{y}", //Shows y value on all Data Points
+		indexLabelFontColor: "white",
+      	indexLabelFontSize: 16,
+		indexLabelPlacement: "outside",
+		dataPoints: [      
+            {{chart2}}
+		]
+	}]
+});
+chart2.render();
+}
+</script>
+<div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+<br>
+<p>As you can see according to the graph below, there were {{eJul}} earthquakes from July 27th to July 31st, and {{eAug}}
+ earthquakes from August 1st to August 25th. August 22nd had the least earthquakes with 215, while August 4th had the most with 420.
+ In addition the hours of {{mini}}-1 pm had the least earthquakes with {{minimum}} while the hours of {{maxi}}-2 am had the most with {{maximum}}.</p>
+<br>
+
+<div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+<br>
+<p>{{text}}</p>
+
+{% endblock %}

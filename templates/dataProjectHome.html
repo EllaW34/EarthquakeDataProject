@@ -1,0 +1,28 @@
+{% extends "dataProjectLayout.html" %}
+
+{% set active_page = "home" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<br>
+<h1>About the Earthquakes</h1>
+<br>
+<p>This is a website analysing data about 8,394 earthquakes that occured around the globe in July and August of 2016.</p>
+<p>The data used is from a CORGIS Dataset Project that can be found
+ <a href="https://think.cs.vt.edu/corgis/json/earthquakes/">here</a>.</p>
+<p>The dataset included details about each individual earthquake including the time and location that it occured.
+ This data revealed that the majority of earthquakes happened in California and Alaska. The following pages will give more insight
+ into the details of the specific locations among other factors.</p>
+ <p>{{info}}</p>
+ <p>About 20,000 earthquakes happen each year (55 every day) with 16 of them being major (greater than or equal to magnitude 7).
+ The largest earthquake ever recorded was a 9.5 magnitude that stretched almost 1,000 miles across Chile on
+  May 22nd in 1960.</p>
+ <p>Earthquakes occur when tectonic plates get stuck at their edges due to friction. When the stress overcomes the 
+ friction, there is a large release of energy that travels in waves and causes the shaking that we feel during an earthquake.</p>
+
+<a href="https://www.usgs.gov/faqs/why-are-we-having-so-many-earthquakes-has-naturally-occurring-earthquake-activity-been#:~:text=The%20National%20Earthquake%20Information%20Center,or%20approximately%2055%20per%20day.">Source 1</a>
+<a href="https://www.usgs.gov/faqs/can-megaquakes-really-happen-magnitude-10-or-larger#:~:text=The%20largest%20earthquake%20ever%20recorded,megaquake%E2%80%9D%20in%20its%20own%20right.">Source 2</a>
+<a href="https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen#:~:text=The%20tectonic%20plates%20are%20always,the%20shaking%20that%20we%20feel.">Source 3</a>
+{% endblock %}

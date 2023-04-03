@@ -1,0 +1,32 @@
+{% extends "dataProjectLayout.html" %}
+
+{% set active_page = "page3" %}
+
+{% block title %}Page 3{% endblock %}
+
+{% block content %}
+<br>
+<h1>Impacts of the Earthquakes</h1>
+<br>
+<p>The impact of earthquakes are measured in terms of their gap, magnitude and significance.</p>
+<p>The gap of an earthquake is its azimuthal gap measured in degrees. An Azimuth is the horizontal angle from a 
+cardinal direction, most commonly north. Gaps with a measure greater than 180 degrees typically have a larger location 
+and an uncertain depth. The range of the gaps for the earthquakes measured between {{miniGap}} and 
+{{maxiGap}} degrees with {{avgGap}} degrees being the average.</p>
+<p>The magnitude of an earthquake is a measure of its size at the source, which is determined by the amplitude
+of the seismic waves. Each unit increase in magnitude is measured as an increase in the total energy by a factor
+of about 32. A magnitude of -1 is thought of as very tiny, while 10 is thought of as incredibly powerful. 
+The magnitude for each earthquake ranged from {{miniMag}} to {{maxiMag}} with {{avgMag}} being the average.</p>
+<p>The significance of an earthquake is determined by many factors, including magnitude, maximum MMI
+ (shaking intensity along with effects on people, objects and buildings), felt reports (reports made by 
+ people who felt an earthquake in order to measure the extent of the damage), and estimated impact.
+ The significance is typically measured on a scale from 0 to 1,000. The range of the significance for each earthquake
+ measured between {{miniSig}} and {{maxiSig}} with {{avgSig}} being the average.</p>
+<br>
+<p>Sources:</p>
+<a href="https://think.cs.vt.edu/corgis/json/earthquakes/">Source 1</a>
+<a href="https://en.wiktionary.org/wiki/azimuthal#:~:text=azimuthal%20(not%20comparable),in%20some%20cases%20two%20points).">Source 2</a>
+<a href="https://abag.ca.gov/sites/default/files/making_sense_of_the_modified_mercalli_intensity_scale.pdf">Source 3</a>
+<a href="https://earthquake.usgs.gov/data/dyfi/">Source 4</a>
+
+{% endblock %}

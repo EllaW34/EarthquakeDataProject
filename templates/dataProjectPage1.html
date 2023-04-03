@@ -1,0 +1,50 @@
+{% extends "dataProjectLayout.html" %}
+
+{% set active_page = "page1" %}
+
+{% block title %}Page 1{% endblock %}
+
+{% block content %}
+<br>
+<h1>Locations of the Earthquakes</h1>
+<br>
+<p>This is a pie chart showing what percent of the 8,394 earthqakes happened in each area.</p>
+<script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+    theme: "dark1",
+	title: {
+		text: "Earthquake Locations"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 270,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{{chart}}
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<br>
+<p>Select a location to reveal how many earthquakes occured there.</p>
+<br>
+<form action="/pg1">
+<select id="state" name="state">
+    {{options}}
+</select>
+<br><br>
+<input type="submit">
+</form>
+<p>{{info}}</p>
+<p>The depth of each earthquake ranged from {{minimum}} to {{maximum}} kilometers with the average depth being {{average}} km.</p>
+
+{% endblock %}
